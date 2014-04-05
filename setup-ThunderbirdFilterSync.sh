@@ -3,7 +3,7 @@
 TB_PROFILE="$1"
 SYNC_STASH="$2"
 
-if "$3" = "restore"; then
+if [ "$3" = "restore" ]; then
 	for accountDir in $(ls -1p $TB_PROFILE$'/ImapMail' | grep "/");	do
 		# accountDir has a trailing slash: account1/
 		accountName=${accountDir%/}
@@ -16,7 +16,7 @@ if "$3" = "restore"; then
 		cp $accountName$"/msgFilterRules.dat.backup" $accountName$"/msgFilterRules.dat"
 	done
 
-elif "$3" = "update"; then
+elif [ "$3" = "update" ]; then
 
 	exit
 
